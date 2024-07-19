@@ -1,5 +1,7 @@
+import { ReactElement } from "react";
+
 export default interface Step {
     name: string,
-    previous: Step|null,
-    next: Step|null
+    number: number,
+    display: ReactElement
 }

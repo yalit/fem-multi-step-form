@@ -2,14 +2,16 @@ export type PlanType = 'monthly' | 'yearly'
 
 export default interface FormData {
     planType: PlanType,
-    firstName: string,
-    lastName: string,
+    name: string,
+    email: string,
+    phone: string
 }
 
 
 export const initialFormData: FormData = {
     planType: 'monthly',
-    firstName: '',
-    lastName: ''
+    name: '',
+    email: '',
+    phone: '',
 }
 
