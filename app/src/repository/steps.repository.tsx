@@ -1,5 +1,5 @@
 import Step from "../interfaces/step.interface";
-import steps from "../store/Steps/steps.tsx";
+import steps from "../store/Form/steps.tsx";
 
 const stepsRepository = {
     all: (): Step[] => {return steps},

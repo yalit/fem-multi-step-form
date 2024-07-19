@@ -4,7 +4,7 @@ import {ValidationError} from "yup";
 import {useState} from "react";
 import Input from "../input.tsx";
 import {StepsNavigation} from "../stepsNavigation.tsx";
-import {PersonalInfo, PersonalInfoErrors, personalInfoSchema} from "../../store/Steps/personalInfo.step.ts";
+import {PersonalInfo, PersonalInfoErrors, personalInfoSchema} from "../../store/Form/personalInfo.step.ts";
 
 export function PersonalInfoStep() {
     const stateDatas: FormData = useData()
