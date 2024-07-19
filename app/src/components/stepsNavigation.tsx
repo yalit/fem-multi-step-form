@@ -13,7 +13,7 @@ export function StepsNavigation({onSubmit, data}: {onSubmit: () => boolean, data
         }
     }
     return (
-        <div className="steps_nagigation fixed bottom-0 inset-x-0 p-4 flex justify-between items-center bg-white">
+        <div className="steps_nagigation fixed md:absolute bottom-0 inset-x-0 p-4 md:p-7 md:pb-0 md:mt-8 flex justify-between items-center bg-white">
             {!stepsRepository.isFirst(step) &&
                 <div className="text-gray-400 cursor-pointer"
                      onClick={() => actions.goToPrevious()}>Go Back</div>
