@@ -4,7 +4,7 @@ import stepsRepository from "../repository/steps.repository.tsx";
 import FormData from "../interfaces/formData.interface.ts";
 
 export function StepsNavigation({onSubmit, data}: {onSubmit: () => boolean, data: Partial<FormData>}){
-    const step: Step = useCurrentStep()
+    const step: Step = useCurrentStep() ?? stepsRepository.all()[0]
     const actions = useActions()
 
     const onNext = () => {

@@ -1,5 +1,6 @@
 import {BillingCycle, Plan, PlanType} from "./plan.interface.ts";
 import {plans} from "../store/Form/plans.ts";
+import {Addon} from "./addon.interface.ts";
 
 export default interface FormData {
     planType: PlanType,
@@ -7,7 +8,8 @@ export default interface FormData {
     email: string,
     phone: string,
     plan: Plan,
-    billingCycle: BillingCycle
+    billingCycle: BillingCycle,
+    addons: Addon[]
 }
 
 export const initialFormData: FormData = {
@@ -16,6 +18,7 @@ export const initialFormData: FormData = {
     email: '',
     phone: '',
     plan: plans[0],
-    billingCycle: 'monthly'
+    billingCycle: 'monthly',
+    addons: []
 }
 

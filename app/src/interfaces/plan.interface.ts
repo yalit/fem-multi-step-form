@@ -1,5 +1,6 @@
+import {Currency, Price} from "./price.interface.ts";
+
 export type PlanType = 'monthly' | 'yearly'
-export type Price = { monthly: number, yearly: number }
 export type BillingCycle = keyof Price
 
-export type Plan = { name: string, price: Price, currency: string, icon: string }
+export type Plan = { name: string, price: {[k in Currency]: Price}, icon: string }

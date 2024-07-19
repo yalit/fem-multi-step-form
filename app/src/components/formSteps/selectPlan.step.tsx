@@ -1,6 +1,6 @@
 import {StepsNavigation} from "../stepsNavigation.tsx";
 import {useState} from "react";
-import {useData} from "../../store/hooks.ts";
+import {useCurrency, useData} from "../../store/hooks.ts";
 import plansRepository from "../../repository/plans.repository.ts";
 import {classNames} from "../../tools/style.ts";
 import {BillingCycle, Plan} from "../../interfaces/plan.interface.ts";
@@ -9,6 +9,7 @@ export function SelectPlanStep() {
     const [plan, setPlan] = useState<Plan>(useData().plan)
     const [billingCycle, setBillingCycle] = useState<BillingCycle>(useData().billingCycle)
     const plans = plansRepository.all()
+    const currency = useCurrency()
 
     const toggleBillingCycle = () => {
         console.log('toggleBillingCycle')
@@ -37,7 +38,7 @@ export function SelectPlanStep() {
                             <div>
                                 <div className="text-lg font-bold text-blue-900">{p.name}</div>
                                 <div
-                                    className="text-gray-400 text-sm">{p.currency}{p.price[billingCycle]}/{billingCycle === 'monthly' ? 'mo' : 'yr'}</div>
+                                    className="text-gray-400 text-sm">{currency}{p.price[currency][billingCycle]}/{billingCycle === 'monthly' ? 'mo' : 'yr'}</div>
                                 {billingCycle === 'yearly' && <div className="text-blue-950 text-sm">2 months free</div>}
                             </div>
                         </div>

@@ -2,9 +2,11 @@ import { create } from 'zustand'
 import FormData, { initialFormData } from '../interfaces/formData.interface';
 import Step from '../interfaces/step.interface';
 import stepsRepository from '../repository/steps.repository';
+import {Currency} from "../interfaces/price.interface.ts";
 
 export interface State {
     currentStep: Step|null,
+    currency: Currency,
     formDatas: FormData
 }
 
@@ -17,7 +19,8 @@ export interface Actions {
 
 
 const useStore = create<State & {actions: Actions}>()((set) => ({
-    currentStep: null, 
+    currentStep: null,
+    currency: '$',
     formDatas: initialFormData,
     actions: {
         goToStep: (step: Step) => set(() => ({currentStep: step})),
