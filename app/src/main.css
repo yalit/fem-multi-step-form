@@ -1,3 +1,9 @@
+@import './assets/fonts/Ubuntu/ubuntu.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    font-family: Ubuntu;
+}
