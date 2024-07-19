@@ -1,6 +1,7 @@
+import Step from "../interfaces/step.interface";
 import useStore, { Actions, State } from "./store";
 
-export function useCurrentStep() : number {
+export function useCurrentStep() : Step {
     return useStore((state) => state.currentStep)
 }
 

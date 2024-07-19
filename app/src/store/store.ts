@@ -1,22 +1,26 @@
 import { create } from 'zustand'
-
-export const MIN_STEP = 1;
-export const MAX_STEP = 4;
+import FormData, { initialFormData } from '../interfaces/formData.interface';
+import Step from '../interfaces/step.interface';
+import { initialStep } from './formSteps';
 
 export interface State {
-    currentStep: number
+    currentStep: Step,
+    formDatas: FormData
 }
 
 export interface Actions {
     goToNext: () => void,
-    goToPrevious: () => void
+    goToPrevious: () => void,
+    updateFormData: (formData: Partial<FormData>) => void
 }
 
 const useStore = create<State & {actions: Actions}>()((set) => ({
-    currentStep:  1,
+    currentStep:  initialStep,
+    formDatas: initialFormData,
     actions: {
-        goToNext: () => set((state) => ({currentStep: state.currentStep < MAX_STEP ? state.currentStep + 1 : state.currentStep })),
-        goToPrevious: () => set((state) => ({currentStep: state.currentStep > MIN_STEP ? state.currentStep - 1 : state.currentStep }))
+        goToNext: () => set((state) => ({currentStep: state.currentStep.next ?? state.currentStep})),
+        goToPrevious: () => set((state) => ({currentStep: state.currentStep.previous ?? state.currentStep})),
+        updateFormData: (data: Partial<FormData>) => set((state) => ({formDatas: {...state.formDatas, ...data}}))
     }
 }))
 
