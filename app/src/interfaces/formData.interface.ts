@@ -8,7 +8,8 @@ export default interface FormData {
     email: string,
     phone: string,
     plan: Plan,
-    addons: Addon[]
+    addons: Addon[],
+    confirmed: boolean
 }
 
 export const initialFormData: FormData = {
@@ -17,6 +18,7 @@ export const initialFormData: FormData = {
     email: '',
     phone: '',
     plan: plans[0],
-    addons: []
+    addons: [],
+    confirmed: false
 }
 

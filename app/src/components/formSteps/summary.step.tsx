@@ -1,10 +1,10 @@
-import {StepsNavigation} from "../stepsNavigation.tsx";
+import {StepsNavigation, StepsNavigationConfirmOptions} from "../stepsNavigation.tsx";
 import {useActions, useCurrency, useData} from "../../store/hooks.ts";
 import {classNames} from "../../tools/style.ts";
 import {Currency} from "../../interfaces/price.interface.ts";
 import FormData from "../../interfaces/formData.interface.ts";
 import stepsRepository from "../../repository/steps.repository.tsx";
-import {SELECTPLANNAME} from "../../store/Form/steps.tsx";
+import {SELECT_PLAN_NAME} from "../../store/Form/steps.tsx";
 
 export function SummaryStep() {
     const datas: FormData = useData()
@@ -12,7 +12,7 @@ export function SummaryStep() {
     const actions = useActions()
 
     const goToSelectPlan = () => {
-        const selectPlanStep = stepsRepository.getByName(SELECTPLANNAME)
+        const selectPlanStep = stepsRepository.getByName(SELECT_PLAN_NAME)
         if (selectPlanStep) {
             actions.goToStep(selectPlanStep)
         }
@@ -27,7 +27,7 @@ export function SummaryStep() {
 
             <div className={classNames(
                 "plan flex justify-between items-center p-3 bg-gray-50",
-                datas.addons.length > 0 ? 'border-b-1 border-gray-600 rounded-t' : 'rounded'
+                datas.addons.length > 0 ? 'rounded-t' : 'rounded'
             )}>
                 <div className="">
                     <div className="font-bold text-blue-950">{datas.plan.name} (<span
@@ -42,6 +42,12 @@ export function SummaryStep() {
                     'yearly': 'yr'
                 }[datas.billingCycle]}</div>
             </div>
+
+            {datas.addons.length > 0 && (
+                <div className="bg-gray-50 p-3">
+                    <div className="addons-title border border-gray-200"></div>
+                </div>
+            )}
 
             <div className={classNames(
                 "addons p-3 bg-gray-50 rounded-b",
@@ -69,7 +75,7 @@ export function SummaryStep() {
                 }[datas.billingCycle]}</div>
             </div>
 
-            <StepsNavigation onSubmit={() => true} data={{}}/>
+            <StepsNavigation onSubmit={(): StepsNavigationConfirmOptions => 'confirm'} data={{}}/>
         </>
     )
 }

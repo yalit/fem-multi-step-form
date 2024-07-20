@@ -3,7 +3,7 @@ import { useData } from "../../store/hooks"
 import {ValidationError} from "yup";
 import {useState} from "react";
 import Input from "../input.tsx";
-import {StepsNavigation} from "../stepsNavigation.tsx";
+import {StepsNavigation, StepsNavigationConfirmOptions} from "../stepsNavigation.tsx";
 import {PersonalInfo, PersonalInfoErrors, personalInfoSchema} from "../../store/Form/personalInfo.step.ts";
 
 export function PersonalInfoStep() {
@@ -15,7 +15,7 @@ export function PersonalInfoStep() {
         setData({...data, [k]: value})
         setErrors({...errors, [k]: ""})
     }
-    const onSubmit = (): boolean => {
+    const onSubmit = (): StepsNavigationConfirmOptions => {
         try {
             personalInfoSchema.validateSync(data, {abortEarly: false})
         } catch (error) {
@@ -26,9 +26,9 @@ export function PersonalInfoStep() {
                 })
                 setErrors((prev) => ({...prev, ...newErrors}))
             }
-            return false
+            return 'stay'
         }
-        return true
+        return 'next'
     }
 
     return (

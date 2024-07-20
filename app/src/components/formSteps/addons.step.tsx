@@ -1,10 +1,10 @@
 import {useCurrency, useData} from "../../store/hooks.ts";
 import {Addon} from "../../interfaces/addon.interface.ts";
 import {useState} from "react";
-import {addons} from "../../store/Form/addons.ts";
 import {classNames} from "../../tools/style.ts";
-import {StepsNavigation} from "../stepsNavigation.tsx";
+import {StepsNavigation, StepsNavigationConfirmOptions} from "../stepsNavigation.tsx";
 import {Currency} from "../../interfaces/price.interface.ts";
+import addonsRepository from "../../repository/addons.repository.ts";
 
 export function AddonsStep() {
     const datas = useData()
@@ -23,7 +23,7 @@ export function AddonsStep() {
             <div className="text-2xl font-bold text-blue-900 mb-2">Pick Addons</div>
             <div className="text-gray-400 mb-4 md:mb-6">Add-ons help enhance your gaming experience.</div>
 
-            {addons.map((addon, index) => {
+            {addonsRepository.all().map((addon, index) => {
                 return (
                     <div key={index}
                          className={classNames(
@@ -49,7 +49,7 @@ export function AddonsStep() {
             })}
             <div className="flex p-4 justify-end mt-2 font-medium text-sm text-indigo-800">+{currency}{stepAddons.reduce((t: number, a: Addon) => t + a.price[currency][datas.billingCycle], 0)}/{{'monthly': 'mo', 'yearly': 'yr'}[datas.billingCycle]} billed</div>
 
-            <StepsNavigation onSubmit={() => true} data={{addons: stepAddons}}/>
+            <StepsNavigation onSubmit={(): StepsNavigationConfirmOptions => 'next'}  data={{addons: stepAddons}}/>
         </>
     )
 }

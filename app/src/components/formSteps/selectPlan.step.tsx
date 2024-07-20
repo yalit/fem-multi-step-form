@@ -63,7 +63,7 @@ export function SelectPlanStep() {
                     className={classNames("font-medium", billingCycle === 'yearly' ? "text-blue-950" : 'text-gray-300')}>Yearly</label>
             </div>
 
-            <StepsNavigation onSubmit={() => true} data={{plan, billingCycle}}/>
+            <StepsNavigation onSubmit={() => 'next'} data={{plan, billingCycle}}/>
         </div>
     )
 }

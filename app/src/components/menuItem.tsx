@@ -11,11 +11,11 @@ export function MenuItem({step}: MenuItemProps) {
     const menuItemNumberClass: string = useMemo<string>(() => classNames(
         "menu__item",
         "font-bold flex items-center text-sm justify-center w-8 h-8 border border-gray-50 rounded-[50%]",
-        step === currentStep ? "bg-cyan-50 text-blue-900" : "text-white"
+        step.number === currentStep?.number ? "bg-cyan-50 text-blue-900" : "text-white"
     ), [step, currentStep])
 
     return (
-        <div className="menu__item flex gap-4 mb-7 items-center cursor-pointer">
+        <div className="menu__item flex gap-4 mb-7 items-center">
             <div className={menuItemNumberClass}>
                 {step.number}
             </div>
