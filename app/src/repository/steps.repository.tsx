@@ -6,7 +6,8 @@ const stepsRepository = {
     getNext: (s: Step|null): Step|null => {return s ? steps[steps.indexOf(s) + 1] ?? null : null},
     getPrevious: (s: Step|null): Step|null => {return s ? steps[steps.indexOf(s) - 1] ?? null : null},
     isLast: (s: Step): boolean => {return steps.indexOf(s) === steps.length - 1},
-    isFirst: (s: Step): boolean => {return steps.indexOf(s) === 0}
+    isFirst: (s: Step): boolean => {return steps.indexOf(s) === 0},
+    getByName: (name: string): Step|null => {return steps.find(s => s.name === name) ?? null},
 }
 
 export default stepsRepository

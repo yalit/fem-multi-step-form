@@ -23,7 +23,7 @@ export function StepsNavigation({onSubmit, data}: {onSubmit: () => boolean, data
                 <div className="bg-blue-950 text-white py-2 px-4 rounded-md cursor-pointer"
                      onClick={onNext}>Next</div>
                 :
-                <div className="bg-blue-950 text-white py-2 px-4 rounded-md cursor-pointer"
+                <div className="bg-blue-700 text-white py-2 px-4 rounded-md cursor-pointer"
                 onClick={onNext}>Confirm</div>
             }
         </div>
