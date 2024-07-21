@@ -1,3 +1,4 @@
-export function classNames(...classes): string {
+
+export function classNames(...classes: (boolean|string)[]): string {
     return classes.filter(Boolean).join(' ')
 }
