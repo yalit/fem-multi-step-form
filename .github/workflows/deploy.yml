@@ -20,8 +20,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Go to app directory
-        run: cd app
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
