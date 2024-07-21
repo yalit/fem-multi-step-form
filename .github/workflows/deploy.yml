@@ -11,6 +11,9 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
+defaults:
+  run:
+    working-directory: app # The working directory path
 jobs:
   build:
     runs-on: ubuntu-latest
