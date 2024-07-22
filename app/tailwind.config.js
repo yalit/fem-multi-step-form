@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'menuMobile': "url('./src/assets/images/bg-sidebar-mobile.svg')",
-        'menuDesktop': "url('./src/assets/images/bg-sidebar-desktop.svg')",
+        'menuMobile': "url('./assets/images/bg-sidebar-mobile.svg')",
+        'menuDesktop': "url('./assets/images/bg-sidebar-desktop.svg')",
       }
 
     },

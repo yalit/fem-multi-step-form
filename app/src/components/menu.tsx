@@ -1,6 +1,5 @@
 import Step from "../interfaces/step.interface"
 import stepsRepository from "../repository/steps.repository"
-import '../styles/menu.css'
 import { MenuItem } from "./menuItem"
 
 export function Menu() {
