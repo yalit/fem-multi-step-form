@@ -11,10 +11,7 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -36,12 +33,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./doc/screenshot.png)
 
 ### Links
 
 - Solution URL: [Solution URL](https://github.com/yalit/fem-multi-step-form)
-- Live Site URL: [Live site URL]()
+- Live Site URL: [Live site URL](https://yalit.github.io/fem-multi-step-form/)
 
 ## My process
 
