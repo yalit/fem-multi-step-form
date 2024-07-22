@@ -2,6 +2,7 @@ import {ReactElement} from "react";
 import {classNames} from "../tools/style.ts";
 
 type InputProps = {
+    id: string,
     label: string | ReactElement;
     value: string;
     error?: string;
@@ -10,7 +11,7 @@ type InputProps = {
     className?: string;
 }
 
-export default function Input({label, value, onChange, placeholder, className = "", error = ''}: InputProps) {
+export default function Input({id, label, value, onChange, placeholder, className = "", error = ''}: InputProps) {
     const inputClassName = classNames(
         "mt-1 p-2 w-full border border-gray-300 rounded-md pl-4 text-sm",
         error ? "border-red-500" : "border-gray-300"
@@ -23,8 +24,8 @@ export default function Input({label, value, onChange, placeholder, className = 
             </div>
             <input
                 type="text"
-                id="name"
-                name="name"
+                id={id}
+                name={id}
                 placeholder={placeholder}
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
